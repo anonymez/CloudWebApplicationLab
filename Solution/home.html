@@ -41,11 +41,13 @@
 		<div style="margin:auto 0px">
 			<h3 style="margin-left:10px">MOVIES</h3>
 			<div class="movie">
+
 				<div class="image">
 					<span class="center-img"></span>
 					<img height="150px" src="static/img/doctorstrange.jpg">
+					<button onclick='hide("movie_1")' style="margin:0;padding:0;">V</button>
 				</div>
-				<div class="description">
+				<div class="description" id="movie_1">
 					<div class="dispose-right">
 						<h2>8.5/<span style="color:grey">10<span></span><img src="static/img/star.png" height="30px" style="align: middle;margin-left: 10px"></h2>
 					</div>
@@ -103,9 +105,11 @@
 						Beltrade ore 	22:00 | Antheo ore 21:00 22:30 | Uci Bicocca ore 19:00 21:00
 					</div>
 				</div>	
-				<div style="clear:both;"></div>			
-			</div>
 				
+				<div style="clear:both;"></div>		
+
+			</div>
+				<button onclick='loadMovie()' style="magin:0;padding:0;">LOAD NEW MOVIE</button>
 		</div>
 	</div>
 
@@ -114,6 +118,74 @@
 	</div>
 
 </div>
+<script type="text/javascript">
+	function hide(div){
 
+
+
+
+
+		elem=document.getElementById(div);
+
+
+
+
+
+
+		if(elem.style.display=='none'){
+			elem.style.display='block';
+		}else{
+		
+		elem.style.display = 'none';}
+	}
+
+var movieDat={
+	name:"Doctor Strange",
+	length:"1h 55m",
+	category:["Action","Fantasy"],
+	out:"26 Ottobre 2016",
+	year:"2016",
+	spettacoli:[{cinema:"Beltrade",time:["22:00"]},{cinema:"Antheo",time:["21:00","22:30"]},{cinema:"Bicocca",time:["19:00","21:00"]}]
+}
+
+
+
+function loadMovie(){
+	elem=document.getElementById("movies");
+	newElem=document.createElement('div');
+	newElem.className="movie";
+	var movieDiv='<div class="image"> 					 <span class="center-img"></span>					<img height="150px" src="static/img/doctorstrange.jpg">				</div>				<div class="description" id="movie_1">					<div class="dispose-right">						<h2>8.5/<span style="color:grey">10<span></span><img src="static/img/star.png" height="30px" style="align: middle;margin-left: 10px"></h2>					</div>					<h3>'+movieDat.name+' ('+movieDat.year+')</h3>					<ul>						<li>1h 55m</li>						<li>Action, Fantasy</li>						<li>26 Ottobre 2016</li>					</ul>										<div style="background-color: #a7b3a5; height:50px; font-size:larger;">						Beltrade ore 	22:00 | Antheo ore 21:00 22:30 | Uci Bicocca ore 19:00 21:00					</div>				</div>					<div style="clear:both;"></div>';
+	newElem.innerHTML=movieDiv;
+	elem.appendChild(newElem);
+}
+
+
+function $_GET(param) {
+	var vars = {};
+	window.location.href.replace( location.hash, '' ).replace( 
+		/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+		function( m, key, value ) { // callback
+			if (key in vars) {
+				app=[];
+				app.push(vars[key]);
+				vars[key]=app;
+				vars[key].push(value)
+			}else{
+			//variable = (comparison) ? if True return this : else return this
+				vars[key] = value !== undefined ? value : '';
+			}
+		
+			
+		}
+	);
+
+	if ( param ) {
+		return vars[param] ? vars[param] : null;	
+	}
+	return vars;
+}
+console.log(decodeURI( $_GET( 'name_movie' ) ));
+console.log(decodeURI( $_GET( 'category' ) ));
+</script>
 </body>
 </html>
