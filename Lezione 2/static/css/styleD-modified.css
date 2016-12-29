@@ -126,4 +126,22 @@ a{
 }
 
 
+@media screen and (max-width: 500px) {
+    .hiddenBy500 {
+        display:none;
+    }
+    #header{
+    	max-width:500px;
+    }
+    #movies{
+    	max-width:500px;
+    }
+}
+
+
+
+
+
+
+
 
