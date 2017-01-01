@@ -12,6 +12,11 @@ homeBTstart.html è una pagina statica, per caricarla basta fare doppio click.
 
 homeBTStart.html è la stessa pagina creata nella lezione 2, ma utilizzando il framework [bootstrap](https://getbootsrap.com)
 
+Il layout system di bootstrap è basato su una griglia composta da righe.
+Ogni riga può contenere al massimo una serie di colonne la cui dimensione totale è 12.
+
+![alt gridsysmte](https://raw.githubusercontent.com/anonymez/CloudWebApplicationLab/master/Lezione%203/static/grid.png "bootstrap grid system") 
+
 
 * Hidden/show di un div a piacimento. Potete cercare in home.html la funzione hide(div)
 
