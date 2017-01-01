@@ -50,3 +50,9 @@ la colonna per i movie viene di conseguenza divisa in tante row quante sono i fi
               </div>
             </div>
 ```
+
+
+Bootstrap ci permette di avere un sistema dinamico di layout in quanto offre diverse tipologie di colonne sfrottando le potenzialità del mediaquery: col-xs (extra small), col-sm (small), col-md (medium), col-lg (large)...
+
+![alt mediaquery](https://raw.githubusercontent.com/anonymez/CloudWebApplicationLab/master/Lezione%203/static/img/mediaquery.png "bootstrap mediaquery") 
+
