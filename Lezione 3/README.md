@@ -56,3 +56,34 @@ Bootstrap ci permette di avere un sistema dinamico di layout in quanto offre div
 
 ![alt mediaquery](https://raw.githubusercontent.com/anonymez/CloudWebApplicationLab/master/Lezione%203/static/img/mediaquery.png "bootstrap mediaquery") 
 
+
+### LocalStorage
+
+La pagina homeBTStart.html carica un array di movie tramite il file moviearray.json. Il local storage permette di salvare delle coppie chiave valore. In questo esercizio vogliamo salvare nel localstorage tutti i film contenuti in moviearray.json e successivamente utilizzarli per caricare i singoli film nella pagina.
+I film devono essere salvati come documenti json, quindi prima di salvarli bisogna trasformali da oggetti javascript a json, e quando vengono riletti dallo storage da documenti json a oggetti javascript.
+
+```
+<script src="static/js/moviearray.js"></script> 
+     
+     <script>
+     	console.log("salvo movies nel localstorage");
+        localStorage.setItem("movies", JSON.stringify(movieDat));
+        console.log("leggo movies dal localstorage");
+        var result=JSON.parse(localStorage.getItem("movies"));
+        console.log(result);
+        for(i=0;i<result.length;i++){
+          movieDiv='<div class="col-md-12">QUI VA INSERITO IL FILM '+result[i].name+'</div>';
+          elem=document.getElementById("movies");
+          newElem=document.createElement('div');
+          newElem.className="row marg";
+          newElem.innerHTML=movieDiv;
+          elem.appendChild(newElem);
+        }
+     </script>
+
+```
+
+
+
+
+
