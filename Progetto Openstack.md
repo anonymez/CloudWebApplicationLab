@@ -27,7 +27,7 @@ load balancer: 2
   
 Cinder - active  
 number of storage : 20  
-type of storage:2  
+type of storage:2    
 Storage-1 size: 10Gb Encrypted:none used:10%  
 Storage-2 size: 100GB Encrypted:yes used:99%  
   
