@@ -50,7 +50,7 @@ h1 {
 #movies{
 	float:left;
 	height: 100%;
-	background-color: #eae3ea;
+	
 	width:80%;
 }
 
@@ -123,6 +123,11 @@ a{
 	height: 100%;
 	vertical-align: middle;
 	padding-right: 20px;
+}
+
+.marg{
+	margin-top:20px;
+	background-color: #eae3ea;
 }
 
 
