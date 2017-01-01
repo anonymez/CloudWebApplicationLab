@@ -59,7 +59,7 @@ Bootstrap ci permette di avere un sistema dinamico di layout in quanto offre div
 
 ### LocalStorage
 
-La pagina homeBTStart.html carica un array di movie tramite il file moviearray.json. Il local storage permette di salvare delle coppie chiave valore. In questo esercizio vogliamo salvare nel localstorage tutti i film contenuti in moviearray.json e successivamente utilizzarli per caricare i singoli film nella pagina.
+La pagina homeBTStart.html carica un array di movie tramite il file moviearray.json. Il local storage permette di salvare delle coppie chiave valore. In questo esercizio vogliamo salvare nel localstorage tutti i film contenuti in moviearray.js e successivamente utilizzarli per caricare i singoli film nella pagina.
 I film devono essere salvati come documenti json, quindi prima di salvarli bisogna trasformali da oggetti javascript a json, e quando vengono riletti dallo storage da documenti json a oggetti javascript.
 
 ```
@@ -80,8 +80,10 @@ I film devono essere salvati come documenti json, quindi prima di salvarli bisog
           elem.appendChild(newElem);
         }
      </script>
-
 ```
+
+
+Resta allo studente ricostruire esattamente il div di ogni movie correttamente. Ogni valore può essere letto attraverso result[i].valore. I possibili attributi sono disponibili in [moviearray.js](https://github.com/anonymez/CloudWebApplicationLab/blob/master/Lezione%203/static/js/moviearray.js)
 
 
 
