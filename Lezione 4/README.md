@@ -1,6 +1,5 @@
 # Lezione 4
 
-La pagina Lezione4Completed.html contiene tutti gli esercizi visti nella lezione in laboratorio
 
 ## Getting Started
 
