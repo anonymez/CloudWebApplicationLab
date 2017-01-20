@@ -28,3 +28,5 @@ var xhr = new XMLHttpRequest();
 ```
 
 Questo script effettua l'operazione GET a un dato indirizzo url e il risultato viene gestiro da una funzione processRequest. La funzione processRequest deve gesitre i vari codici di risposta http, come 200,201,404,500 etc.
+
+L'esercizio svolto a lezione non è stato caricato online perchè parte della consegna del progetto d'esame.
