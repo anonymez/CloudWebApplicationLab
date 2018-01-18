@@ -50,7 +50,7 @@ h1 {
 #movies{
 	float:left;
 	height: 100%;
-	background-color: #eae3ea;
+	
 	width:80%;
 }
 
@@ -125,23 +125,15 @@ a{
 	padding-right: 20px;
 }
 
-
-@media screen and (max-width: 500px) {
-    .hiddenBy500 {
-        display:none;
-    }
-    #header{
-    	max-width:500px;
-    }
-    #movies{
-    	max-width:500px;
-    }
+.marg{
+	margin-top:20px;
+	background-color: #eae3ea;
 }
 
-
-
-
-
+footer {
+	background-color: #222;
+	color:white;
+}
 
 
 

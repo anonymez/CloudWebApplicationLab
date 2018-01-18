@@ -1,4 +1,4 @@
-var movieDat=[{
+var movieFromFile=[{
 	id:"0",
 	img:"static/img/newMovie.jpg",
 	name:"Doctor Strange",

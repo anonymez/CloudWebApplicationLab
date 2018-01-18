@@ -1,34 +1,21 @@
 
 body{
-	font: normal 16px 'Slabo 27px', serif;;
+	font: normal 16px 'Slabo 27px', serif;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    margin:0;
 }
 
-h1 {
-	font: bold 28px 'Slabo 27px', Arial, Helvetica, sans-serif;
+.image{
+	width: 25px;
+	margin-right: 10px;
 }
 
-#container{
-
+footer {
+	background-color: #222;
+	color:white;
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
 }
-
-#header{
-
-}
-
-#footer{
-
-}
-
-
-.movie{
-
-}
-
-img{
-
-}
-
-a{
-
-}
-

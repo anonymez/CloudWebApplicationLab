@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Lab Cloud e Programmazione Web</title>
+	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+	<link href="static/css/bootstrap.css" rel="stylesheet">
+	<link href="static/css/styleD-modified.css" rel="stylesheet">
+
+<style>
+@media screen and (max-width: 500px) {
+    .hideInSmall {
+        display: none;
+    }
+    #header{
+    	max-width:500px;
+    }
+    #movies{
+    	max-width:500px;
+    }
+}
+
+
+</style>
+
+
+
+</head>
+<body>
+
+<div id="container">
+	<div id="header">
+		<div class="nav-right hideInSmall">Register</div>
+		<div class="nav-right hideInSmall">Login</div>
+		<h1><span> <img class="image" src="static/img/popcorn.png">WATCH AT CINEMA</span></h1>
+	</div>
+	<div class="maincontent">
+		<div id="sidebar" class="hideInSmall" >
+			<div style="margin-left:10px">
+
+			<h3><span> <img class="image" src="static/img/search.png">Search</span></h3>
+			<form action="home.html" method="get">
+				<label for="name_movie">Name</label>
+				<input type="text" name="name_movie">
+				<p>Category</p>
+				<table>
+				<tbody>
+					<tr><th><input type="checkbox" name="category" value="action"> </th><th>Action </th></tr>
+					<tr><th><input type="checkbox" name="category" value="comedy"> </th><th>Comedy </th></tr>
+					<tr><th><input type="checkbox" name="category" value="fantasy"> </th><th>Fantasy </th></tr>
+					<tr><th><input type="checkbox" name="category" value="romance"> </th><th class="text-right">Romance</th></tr>
+				</tbody>
+				</table>
+				<input type="submit" value="Search">
+			</form>
+
+		</div>
+	</div>
+
+	<div id="movies">
+		<div style="margin:auto 0px">
+			<h3 style="margin-left:10px">MOVIES</h3>
+			<div class="movie">
+
+				<div class="image hideInSmall" >
+					<span class="center-img"></span>
+					<img height="150px" src="static/img/doctorstrange.jpg">
+					<button onclick='hide("movie_1")' style="margin:0;padding:0;">V</button>
+				</div>
+				<div class="description" id="movie_1">
+					<div class="dispose-right">
+						<h2>8.5/<span style="color:grey">10<span></span><img src="static/img/star.png" height="30px" style="align: middle;margin-left: 10px"></h2>
+					</div>
+					<h3>Doctor Strange (2016)</h3>
+					<ul>
+						<li>1h 55m</li>
+						<li>Action, Fantasy</li>
+						<li>26 Ottobre 2016</li>
+					</ul>					
+					<div style="background-color: #a7b3a5; height:50px; font-size:larger;">
+						Beltrade ore 	22:00 | Antheo ore 21:00 22:30 | Uci Bicocca ore 19:00 21:00
+					</div>
+				</div>	
+				<div style="clear:both;"></div>			
+			</div>
+		
+			<div class="movie">
+				<div class="image hideInSmall">
+					<span class="center-img"></span>
+					<img height="150px" src="static/img/doctorstrange.jpg">
+				</div>
+				<div class="description">
+					<div class="dispose-right">
+						<h2>8.5/<span style="color:grey">10<span></span><img src="static/img/star.png" height="30px" style="align: middle;margin-left: 10px"></h2>
+					</div>
+					<h3>Doctor Strange (2016)</h3>
+					<ul>
+						<li>1h 55m</li>
+						<li>Action, Fantasy</li>
+						<li>26 Ottobre 2016</li>
+					</ul>					
+					<div style="background-color: #a7b3a5; height:50px; font-size:larger;">
+						Beltrade ore 	22:00 | Antheo ore 21:00 22:30 | Uci Bicocca ore 19:00 21:00
+					</div>
+				</div>	
+				<div style="clear:both;"></div>			
+			</div>
+
+			<div class="movie">
+				<div class="image hideInSmall">
+					<span class="center-img"></span>
+					<img height="150px" src="static/img/doctorstrange.jpg">
+				</div>
+				<div class="description">
+					<div class="dispose-right">
+						<h2>8.5/<span style="color:grey">10<span></span><img src="static/img/star.png" height="30px" style="align: middle;margin-left: 10px"></h2>
+					</div>
+					<h3>Doctor Strange (2016)</h3>
+					<ul>
+						<li>1h 55m</li>
+						<li>Action, Fantasy</li>
+						<li>26 Ottobre 2016</li>
+					</ul>					
+					<div style="background-color: #a7b3a5; height:50px; font-size:larger;">
+						Beltrade ore 	22:00 | Antheo ore 21:00 22:30 | Uci Bicocca ore 19:00 21:00
+					</div>
+				</div>	
+				
+				<div style="clear:both;"></div>		
+
+			</div>
+				<button onclick='loadMovie()' style="magin:0;padding:0;">LOAD NEW MOVIE</button>
+		</div>
+	</div>
+
+	<div id="footer">
+		<h3>Cinema News by UNILAB</h3>
+	</div>
+
+</div>
+<script type="text/javascript">
+	function hide(div){
+
+
+
+
+
+		elem=document.getElementById(div);
+
+
+
+
+
+
+		if(elem.style.display=='none'){
+			elem.style.display='block';
+		}else{
+		
+		elem.style.display = 'none';}
+	}
+
+var movieDat={
+	name:"Doctor Strange",
+	length:"1h 55m",
+	category:["Action","Fantasy"],
+	out:"26 Ottobre 2016",
+	year:"2016",
+	spettacoli:[{cinema:"Beltrade",time:["22:00"]},{cinema:"Antheo",time:["21:00","22:30"]},{cinema:"Bicocca",time:["19:00","21:00"]}]
+}
+
+
+
+function loadMovie(){
+	elem=document.getElementById("movies");
+	newElem=document.createElement('div');
+	newElem.className="movie";
+	var movieDiv='<div class="image"> 					 <span class="center-img"></span>					<img height="150px" src="static/img/doctorstrange.jpg">				</div>				<div class="description" id="movie_1">					<div class="dispose-right">						<h2>8.5/<span style="color:grey">10<span></span><img src="static/img/star.png" height="30px" style="align: middle;margin-left: 10px"></h2>					</div>					<h3>'+movieDat.name+' ('+movieDat.year+')</h3>					<ul>						<li>1h 55m</li>						<li>Action, Fantasy</li>						<li>26 Ottobre 2016</li>					</ul>										<div style="background-color: #a7b3a5; height:50px; font-size:larger;">						Beltrade ore 	22:00 | Antheo ore 21:00 22:30 | Uci Bicocca ore 19:00 21:00					</div>				</div>					<div style="clear:both;"></div>';
+	newElem.innerHTML=movieDiv;
+	elem.appendChild(newElem);
+	
+}
+
+
+function $_GET(param) {
+	var vars = {};
+	window.location.href.replace( location.hash, '' ).replace( 
+		/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+		function( m, key, value ) { // callback
+			if (key in vars) {
+				app=[];
+				app.push(vars[key]);
+				vars[key]=app;
+				vars[key].push(value)
+			}else{
+			//variable = (comparison) ? if True return this : else return this
+				vars[key] = value !== undefined ? value : '';
+			}
+		
+			
+		}
+	);
+
+	if ( param ) {
+		return vars[param] ? vars[param] : null;	
+	}
+	return vars;
+}
+console.log(decodeURI( $_GET( 'name_movie' ) ));
+console.log(decodeURI( $_GET( 'category' ) ));
+</script>
+</body>
+</html>
