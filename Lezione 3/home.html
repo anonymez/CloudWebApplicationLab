@@ -75,10 +75,10 @@
             <p>Category</p>
             <table class="table">
             <tbody>
-            <tr><td><input type="checkbox" name="category" value="action"> </td><td>Action </td></tr>
-            <tr><td><input type="checkbox" name="category" value="comedy"> </td><td>Comedy </td></tr>
-            <tr><td><input type="checkbox" name="category" value="fantasy"> </td><td>Fantasy </td></tr>
-            <tr><td><input type="checkbox" name="category" value="romance"> </td><td>Romance</td></tr>
+            <tr><td><input type="checkbox" name="category" value="Action"> </td><td>Action </td></tr>
+            <tr><td><input type="checkbox" name="category" value="Comedy"> </td><td>Comedy </td></tr>
+            <tr><td><input type="checkbox" name="category" value="Fantasy"> </td><td>Fantasy </td></tr>
+            <tr><td><input type="checkbox" name="category" value="Romance"> </td><td>Romance</td></tr>
             </tbody>
             </table>
             <input class="btn btn-success" type="submit" value="Search">
@@ -88,34 +88,7 @@
           </div>
           <div class="col-md-10 col-sm-12" id="movies">
 
-            <div class="row marg"><!-- riga per ogni film -->
-            <!-- colonna immagine film -->
-              <div class="col-md-2 col-sm-4">
-                
-                <img height="150px" style="padding:5px;" src="static/img/doctorstrange.jpg">
-              </div>
-            <!-- colonna informazioni film -->  
-              <div class="col-md-10 col-sm-8">
-              <!--riga info lunghezza etc -->
-                <div class="row">
-                  <div class="col-md-8">
-                  <h3>Doctor Strange (2016)</h3>
-                    <ul>
-                      <li>1h 55m</li>
-                      <li>Action, Fantasy</li>
-                      <li>26 Ottobre 2016</li>
-                    </ul>   
-                    
-                  </div>
-                  <div class="class-md-4">
-                    
-                  </div>
-                </div>
-              <!--riga info  spettacoli-->  
-                <div class="row"></div>
-
-              </div>
-            </div>
+           
 
           </div>
         </div>
@@ -148,6 +121,111 @@
  
 
 
+</script>
+
+
+
+    <script type="text/javascript">
+    window.onload=function(){
+      var movies=localStorage.getItem("movies");
+      if (movies==null){
+        localStorage.setItem("movies",JSON.stringify(movieFromFile));
+        movies=movieFromFile;    
+        console.log("LOADED FROM FILE");  
+      }else{
+        movies=JSON.parse(movies);
+        console.log("LOADED FROM LOCAL STORAGE")   
+      }
+      var categoryParam=$_GET('category');
+      var nameParam=$_GET('name_movie');
+      console.log(categoryParam);
+      console.log(nameParam);
+      var divMovies=document.getElementById("movies");
+      for(var i=0;i<movies.length;i++){
+            var nameCheck=true;
+            var categoryCheck=true;
+            if(nameParam!=null){
+              if(movies[i].name.indexOf(nameParam)==-1){
+                  nameCheck=false;
+              }
+            }
+            if(categoryParam!=null){
+              //controllo se category non e' un array (solo un checkbox selezionato)
+              if(Array.isArray(categoryParam)==false){
+                categoryParam=[categoryParam];
+              }
+              var found=false;
+              for(var indexCat=0;indexCat<movies[i].category.length;indexCat++){
+                if(categoryParam.indexOf(movies[i].category[indexCat]) > -1){
+                  found=true;
+                  break;
+                }
+              }
+              categoryCheck=found;
+              
+
+            }
+            if((categoryCheck)&&(nameCheck)){
+            var html4Movie='<div class="col-md-2 col-sm-4">\
+                <img height="150px" style="padding:5px;" src="'+movies[i].img+'">\
+              </div>\
+              <div class="col-md-10 col-sm-8">\
+              <div class="row">\
+                  <div class="col-md-8">\
+                  <h3>'+movies[i].name+' ('+movies[i].year+')</h3>\
+                    <ul>\
+                      <li>'+movies[i].length+'</li>\
+                      <li>'+movies[i].category+'</li>\
+                      <li>'+movies[i].out+'</li>\
+                    </ul>\
+                  </div>\
+                  <div class="class-md-4"> </div>\
+                </div>\
+              </div>';
+            
+            var elemMovie=document.createElement('div');
+            elemMovie.className="row marg";
+            elemMovie.innerHTML=html4Movie;
+            divMovies.appendChild(elemMovie);
+          }
+      }
+
+    }
+
+    function hide(divID){ 
+  elem=document.getElementById(divID); 
+  if(elem.style.display=='none'){ 
+    elem.style.display='block'; 
+  }else{ 
+    elem.style.display = 'none';
+  } 
+}
+
+
+function $_GET(param) {
+  var vars = {};
+  window.location.href.replace( location.hash, '' ).replace( 
+    /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+    function( m, key, value ) { // callback
+      if (key in vars) {
+        app=[];
+        app.push(vars[key]);
+        vars[key]=app;
+        vars[key].push(value)
+      }else{
+      //variable = (comparison) ? if True return this : else return this
+        vars[key] = value !== undefined ? value : '';
+      }
+    
+      
+    }
+  );
+
+  if ( param ) {
+    return vars[param] ? vars[param] : null;  
+  }
+  return vars;
+}
 </script>
     
       
